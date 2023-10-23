@@ -8,6 +8,16 @@ resetButtonEl.addEventListener("click", function () {
   counterValueEl.textContent = 0;
 });
 
+function incrementCounter() {
+  //get current value of the counter
+  const currentValue = counterValueEl.textContent;
+  //convert to number type
+  const currentValueAsNumber = +currentValue;
+  //increment by 1
+  const newValue = currentValueAsNumber + 1;
+  //set counter element with new value
+  counterValueEl.textContent = newValue;
+}
 decreaseButtonEl.addEventListener("click", function () {
   //get current value
   const currentValue = counterValueEl.textContent;
@@ -19,13 +29,5 @@ decreaseButtonEl.addEventListener("click", function () {
   counterValueEl.textContent = newValue;
 });
 
-increaseButtonEl.addEventListener("click", function () {
-  //get current value of the counter
-  const currentValue = counterValueEl.textContent;
-  //convert to number type
-  const currentValueAsNumber = +currentValue;
-  //increment by 1
-  const newValue = currentValueAsNumber + 1;
-  //set counter element with new value
-  counterValueEl.textContent = newValue;
-});
+increaseButtonEl.addEventListener("click", incrementCounter);
+document.addEventListener("keydown", incrementCounter);
