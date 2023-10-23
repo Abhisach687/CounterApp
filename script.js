@@ -24,7 +24,11 @@ decreaseButtonEl.addEventListener("click", function () {
   //convert to number
   const currentValueAsNumber = +currentValue;
   //decrement by 1
-  const newValue = currentValueAsNumber - 1;
+  let newValue = currentValueAsNumber - 1;
+  //check if new value is less than 0
+  if (newValue < 0) {
+    newValue = 0;
+  }
   //update counter value with new value
   counterValueEl.textContent = newValue;
 });
